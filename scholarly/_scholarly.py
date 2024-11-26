@@ -240,6 +240,10 @@ class _Scholarly:
         pub_parser = PublicationParser(self.__nav)
         flag = False
         soup = self.__nav._get_soup(url_citations)
+        prof_name = soup.find_all("div", {"id": "gsc_prf_in"})
+        if prof_name:
+            prof_name = prof_name[0].text.strip()
+
         while True:
             for row in soup.find_all("tr", class_="gsc_a_tr"):
                 new_pub = pub_parser.get_publication(
@@ -262,7 +266,7 @@ class _Scholarly:
             else:
                 break
 
-        return publications
+        return prof_name, publications
 
     def fill(
         self,
