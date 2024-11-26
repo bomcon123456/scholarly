@@ -261,7 +261,7 @@ class _Scholarly:
             else:
                 break
 
-    return publications
+        return publications
 
     def fill(
         self,
