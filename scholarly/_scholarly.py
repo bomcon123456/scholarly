@@ -245,6 +245,7 @@ class _Scholarly:
                 new_pub = pub_parser.get_publication(
                     row, PublicationSource.AUTHOR_PUBLICATION_ENTRY
                 )
+                new_pub = pub_parser.fill(new_pub)
                 publications.append(new_pub)
                 if (publication_limit) and (len(publications) >= publication_limit):
                     flag = True
